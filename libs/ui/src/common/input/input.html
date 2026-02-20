@@ -1,0 +1,23 @@
+<div
+  class="bw-input"
+  [class.bw-input-float]="floatLabel()"
+  [class.bw-input-disabled]="isDisabled()"
+>
+  <input
+    class="bw-input_field"
+    [id]="id()"
+    [name]="name()"
+    [type]="type()"
+    [disabled]="isDisabled()"
+    [value]="value()"
+    [attr.placeholder]="label() || placeholder()"
+    (input)="onInput($event)"
+    (focus)="onFocus()"
+    (blur)="onBlur()"
+  />
+  @if (label()) {
+    <label class="bw-input_label" [for]="id()">
+      {{ label() }}
+    </label>
+  }
+</div>

@@ -1,0 +1,74 @@
+@use "../../variables";
+
+:host {
+  display: flex;
+  width: 100%;
+  padding: 0;
+  font-size: var(--font-size-base);
+  border: 1px solid var(--color-neutral-300);
+  border-radius: var(--border-radius-md);
+  background-color: var(--color-neutral-0);
+  transition: border-color var(--transition-fast);
+}
+.bw-input {
+  position: relative;
+  display: inline-flex;
+  width: 100%;
+  border-radius: inherit;
+  &_field {
+    width: 100%;
+    padding: 18px var(--spacing-md) 8px;
+    border: none;
+    border-radius: inherit;
+    background-color: var(--color-neutral-0);
+    color: var(--color-neutral-900);
+    font-size: var(--font-size-base);
+    line-height: 1.4;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+
+    &::placeholder {
+      color: transparent;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: var(--color-primary-600);
+      box-shadow: none;
+    }
+  }
+
+  &_label {
+    position: absolute;
+    left: var(--spacing-sm);
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--color-neutral-0);
+    color: var(--color-neutral-500);
+    font-size: var(--font-size-base);
+    line-height: 1;
+    transition: all var(--transition-fast);
+    pointer-events: none;
+  }
+
+  &-float &_label,
+  &:focus-within &_label,
+  &_field:focus + &_label,
+  &_field:not(:placeholder-shown) + &_label {
+    top: -6px;
+    background: white;
+    transform: translateY(0);
+    font-size: var(--font-size-xs);
+    color: var(--color-primary-600);
+    padding-inline: var(--spacing-xs);
+  }
+
+  &-disabled &_field {
+    background-color: var(--color-neutral-100);
+    color: var(--color-neutral-500);
+    cursor: not-allowed;
+  }
+
+  &-disabled &_label {
+    color: var(--color-neutral-400);
+  }
+}
