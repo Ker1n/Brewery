@@ -98,3 +98,18 @@ a {
   margin: 0 auto;
   padding: 0 var(--spacing-md);
 }
+
+/* DIALOG STYLES */
+//todo tempo
+
+.app-modal-backdrop {
+  background: rgba(0, 0, 0, .52);
+}
+
+.app-modal-panel-sheet {
+  width: 100vw;
+}
+
+.app-modal-panel-dialog {
+
+}

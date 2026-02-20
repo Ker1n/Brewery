@@ -4,7 +4,7 @@ import {Nullable} from '@core/types';
 import {
   debounceTime,
   distinctUntilChanged,
-  finalize, iif, map,
+  finalize, iif, map, mergeMap,
   Observable, of,
   shareReplay,
   startWith,
@@ -28,7 +28,7 @@ export class BreweriesService {
   readonly isLoading: WritableSignal<boolean> = signal(false);
   readonly isCitySuggestionsLoading: WritableSignal<boolean>  = signal(false);
 
-  public breweries$: Observable<Brewery[]> = this.searchAction$.pipe(
+  public breweries$: Observable<Brewery[]> = this.searchAction$.asObservable().pipe(
     tap(() => this.isLoading.set(true)),
     switchMap(city => this.breweryApiService.getBreweriesByCity(city).pipe(finalize(() => this.isLoading.set(false)))),
     startWith([]),

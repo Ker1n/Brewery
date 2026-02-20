@@ -17,7 +17,7 @@
     "module": "preserve",
     "paths": {
       "@brewery/ui": ["./libs/ui/src/public-api.ts"],
-      "@shared/*": ["./libs/ui/src/common/*"]
+      "@core/*": ["./src/app/core/*"],
     }
   },
   "angularCompilerOptions": {
