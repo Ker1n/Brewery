@@ -26,7 +26,7 @@ export class BreweriesService {
   public searchAction$: Subject<string> = new Subject<string>();
 
   readonly isLoading: WritableSignal<boolean> = signal(false);
-  readonly isCitySuggestionsLoading: WritableSignal<boolean>  = signal(true);
+  readonly isCitySuggestionsLoading: WritableSignal<boolean>  = signal(false);
 
   public breweries$: Observable<Brewery[]> = this.searchAction$.asObservable().pipe(
     tap(() => this.isLoading.set(true)),

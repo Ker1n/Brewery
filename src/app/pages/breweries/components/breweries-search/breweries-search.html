@@ -1,5 +1,6 @@
 <div class="search-block">
   <bw-input
+    [id]="'breweries-search-input'"
     type="text"
     [label]="'Search by city'"
     [formControl]="breweriesService.searchControl"
@@ -7,7 +8,7 @@
     class="search-input"
   />
 
-<bw-button (click)="onSearch()" class="search-btn">Search</bw-button>
+<bw-button [disabled]="!breweriesService.searchControl.value || breweriesService.isLoading()" (click)="onSearch()" class="search-btn">Search</bw-button>
 
 @let suggestions = citySuggestions();
 

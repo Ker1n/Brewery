@@ -1,0 +1,22 @@
+@let breweriesList = breweries();
+
+@if (breweriesService.isLoading()) {
+  <div class="loader"><bw-loader /></div>
+}
+
+@if (breweriesList?.length) {
+  <div class="breweries-list">
+    @for (brewery of breweriesList; track brewery.id) {
+      <bw-card>
+        <div class="brewery-info">
+          <h3>{{ brewery.name }}</h3>
+          <p class="brewery-type">{{ brewery.brewery_type }}</p>
+          <p class="brewery-location">{{ brewery.city }}, {{ brewery.state }}</p>
+        </div>
+        <bw-button (click)="openBreweryDetails(brewery)" class="details-btn">View Details</bw-button>
+      </bw-card>
+    }
+  </div>
+} @else {
+  <div class="no-results">No breweries found. Try searching for a city.</div>
+}

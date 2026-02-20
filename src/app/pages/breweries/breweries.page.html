@@ -1,17 +1,5 @@
-<div class="search-bar">
-  <input
-    type="text"
-    [formControl]="breweriesService.searchControl"
-    placeholder="Enter a city"
-  />
-  <button type="button" (click)="onSearch()">
-    Search
-  </button>
+<div class="container">
+  <app-breweries-search />
+  <bw-divider />
+  <app-breweries-list />
 </div>
-{{breweriesService.breweries$ | async | json}}
-
-_____
-
-
-
-{{breweriesService.citySuggestions$ | async | json}}
