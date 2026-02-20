@@ -1,0 +1,22 @@
+<div class="search-block">
+  <bw-input
+    type="text"
+    [label]="'Search by city'"
+    [formControl]="breweriesService.searchControl"
+    placeholder="Enter a city"
+    class="search-input"
+  />
+
+<bw-button (click)="onSearch()" class="search-btn">Search</bw-button>
+
+@let suggestions = citySuggestions();
+
+@if (suggestions?.length) {
+  <div class="suggestions">
+    @for (city of suggestions; track city) {
+      <div class="suggestion-item" (click)="onSelectCity(city)">{{ city }}</div>
+    }
+  </div>
+}
+
+</div>

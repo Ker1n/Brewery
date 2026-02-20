@@ -4,7 +4,7 @@ import {Nullable} from '@core/types';
 import {
   debounceTime,
   distinctUntilChanged,
-  finalize, iif, map, mergeMap,
+  finalize, iif, map, merge,
   Observable, of,
   shareReplay,
   startWith,
@@ -26,7 +26,7 @@ export class BreweriesService {
   public searchAction$: Subject<string> = new Subject<string>();
 
   readonly isLoading: WritableSignal<boolean> = signal(false);
-  readonly isCitySuggestionsLoading: WritableSignal<boolean>  = signal(false);
+  readonly isCitySuggestionsLoading: WritableSignal<boolean>  = signal(true);
 
   public breweries$: Observable<Brewery[]> = this.searchAction$.asObservable().pipe(
     tap(() => this.isLoading.set(true)),
@@ -43,16 +43,20 @@ export class BreweriesService {
     shareReplay({bufferSize: 1, refCount: true}),
   );
 
-  readonly error = signal<Nullable<string>>(null);
 
   private getCitySuggestions(value: string): Observable<Nullable<string[]>> {
-    return iif(
+    const citySuggestions$ =  iif(
       () => value.length >= this.MIN_SEARCH_CHARACTERS_LENGTH,
       this.breweryApiService.getBreweriesByCity(value).pipe(
         map((breweries: Brewery[]) => [...new Set(breweries.map(b => b.city))].slice(0, this.CITY_SUGGESTIONS_LIST_LENGTH)
-      )),
+        )),
       of(null)
-    ).pipe(finalize(() => this.isCitySuggestionsLoading.set(false)));
+    ).pipe(finalize(() => this.isCitySuggestionsLoading.set(false)))
+
+    return merge(
+      citySuggestions$,
+      this.searchAction$.asObservable().pipe(map(() => []))
+    );
   }
 }
 
