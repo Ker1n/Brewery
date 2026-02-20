@@ -6,7 +6,24 @@
     "outDir": "./out-tsc/app",
     "types": [
       "node"
-    ]
+    ],
+    "paths": {
+      "@core/*": [
+        "src/app/core/*"
+      ],
+      "@pages/*": [
+        "src/app/pages/*"
+      ],
+      "@services/*": [
+        "src/app/services/*"
+      ],
+      "@shared/*": [
+        "libs/ui/src/common/*"
+      ],
+      "@brewery/ui": [
+        "./libs/ui/src/public-api.ts"
+      ]
+    }
   },
   "include": [
     "src/**/*.ts"
