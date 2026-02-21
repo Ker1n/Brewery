@@ -1,4 +1,4 @@
-@use "../../variables" ;
+@use "../../variables" as *;
 
 .bw-button {
   height: 40px;
@@ -11,6 +11,7 @@
   font-weight: var(--font-weight-semibold);
   cursor: pointer;
   transition: background-color var(--transition-fast);
+  width: 100%;
 
   &:hover {
     background-color: var(--color-primary-700);
@@ -20,8 +21,8 @@
     background-color: var(--color-primary-800);
   }
 
-  @media (max-width: 768px) {
-    width: 100%;
+  @include desktop {
+    width: inherit;
   }
 
   &:disabled {
