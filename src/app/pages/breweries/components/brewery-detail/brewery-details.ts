@@ -10,9 +10,6 @@ import {Brewery} from '@core/interfaces';
 })
 export class BreweryDetailsComponent {
   public data: { brewery: Brewery } = inject(MODAL_DATA);
-  constructor() {
-    console.log(`babah - [this.data]`, this.data);
-  }
 }
 
 

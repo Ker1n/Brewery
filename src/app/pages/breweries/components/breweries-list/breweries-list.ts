@@ -22,11 +22,7 @@ export class BreweriesList {
 
   public breweries = toSignal(this.breweriesService.breweries$, {initialValue: []});
 
-  openBreweryDetails(brewery: Brewery) {
-    const ref = this.dialogService.open(BreweryDetailsComponent, { brewery });
-
-    ref.afterClosed().subscribe(result => {
-      console.log('closed with', result);
-    });
+  public openBreweryDetails(brewery: Brewery): void {
+    this.dialogService.open(BreweryDetailsComponent, { brewery });
   }
 }

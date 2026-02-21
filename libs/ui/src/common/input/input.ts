@@ -41,33 +41,33 @@ export class InputComponent implements ControlValueAccessor {
   private onChange: (value: string) => void = () => {};
   private onTouched: () => void = () => {};
 
-  writeValue(value: string | null): void {
+  public writeValue(value: string | null): void {
     this.value.set(value ?? '');
   }
 
-  registerOnChange(fn: (value: string) => void): void {
+  public registerOnChange(fn: (value: string) => void): void {
     this.onChange = fn;
   }
 
-  registerOnTouched(fn: () => void): void {
+  public registerOnTouched(fn: () => void): void {
     this.onTouched = fn;
   }
 
-  setDisabledState(isDisabled: boolean): void {
+  public setDisabledState(isDisabled: boolean): void {
     this.disabled.set(isDisabled);
   }
 
-  onInput(event: Event): void {
+  public onInput(event: Event): void {
     const nextValue = (event.target as HTMLInputElement).value;
     this.value.set(nextValue);
     this.onChange(nextValue);
   }
 
-  onFocus(): void {
+  public onFocus(): void {
     this.focused.set(true);
   }
 
-  onBlur(): void {
+  public onBlur(): void {
     this.focused.set(false);
     this.onTouched();
   }
