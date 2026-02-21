@@ -2,8 +2,8 @@ import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {BreweriesService} from '@pages/breweries/breweries.service';
 import {toSignal} from '@angular/core/rxjs-interop';
 import {Brewery} from '@core/interfaces';
-import {BreweryDetailsComponent} from '@shared/brewery-details';
 import {ButtonComponent, CardComponent, LoaderComponent, ModalService} from '@brewery/ui';
+import {BreweryDetailsComponent} from '@pages/breweries/components/brewery-detail/brewery-details';
 
 @Component({
   selector: 'app-breweries-list',
