@@ -13,11 +13,15 @@
 
 .brewery-header {
   h2 {
+    width: 80%;
     margin: 0 0 var(--spacing-sm) 0;
     font-size: var(--font-size-2xl);
     font-weight: var(--font-weight-semibold);
     color: var(--color-neutral-900);
     line-height: var(--line-height-tight);
+    @include desktop {
+      min-width: 100%;
+    }
   }
 }
 
@@ -40,11 +44,30 @@
   flex-direction: column;
   gap: var(--spacing-xs);
   padding: var(--spacing-md);
+
   transition: all var(--transition-base);
   &:hover {
     background-color: var(--color-neutral-100);
     box-shadow: var(--shadow-sm);
   }
+}
+
+.info-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.info-icon {
+  color: var(--color-primary-600);
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  line-height: 1;
 }
 
 .info-label {
