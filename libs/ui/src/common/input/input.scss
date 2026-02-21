@@ -54,8 +54,8 @@
   &:focus-within &_label,
   &_field:focus + &_label,
   &_field:not(:placeholder-shown) + &_label {
+    background-color: var(--color-neutral-0);
     top: -6px;
-    background: white;
     transform: translateY(0);
     font-size: var(--font-size-xs);
     color: var(--color-primary-600);
