@@ -1,59 +1,95 @@
-# Brewery
+# 🍺 Brewery Finder
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.4.
+Angular application for searching and viewing brewery information using [Open Brewery DB API](https://www.openbrewerydb.org/).
 
-## Development server
+## About the Project
 
-To start a local development server, run:
+Test assignment demonstrating Angular development skills using modern approaches and best practices.
 
-```bash
-ng serve
+### Key Features
+
+#### Smart Brewery Search
+- City-based search
+- Autocomplete with city suggestions
+- Dynamic results loading
+- Validation and error handling
+
+#### Brewery List
+- Cards with key information
+- Adaptive grid (1-3 columns depending on screen size)
+- Loading and empty state indicators
+- Hover effects for interactivity
+
+#### Detailed Information
+- Modal window with complete brewery information
+- Material Icons for visual data separation
+- Brewery types, address, phone, website
+- Clickable links and phone numbers
+
+#### Custom UI Library
+- **Button** 
+- **Input**
+- **Card**
+- **Modal**
+- **Loader**
+- **Divider** 
+
+### Technologies
+
+- **Angular 21** 
+- **TypeScript** 
+- **SCSS** 
+- **RxJS** 
+- **Signals**
+- **Standalone Components** 
+- **Material Icons** 
+
+### Performance Optimizations
+- **ZoneLess** - zoneless approach
+- **OnPush Change Detection** - minimizing change detection cycles
+- **Standalone Components** - tree-shaking of unused code
+- **Lazy loading potential** - ready structure for code splitting
+
+### Design System
+- **CSS Variables** - Colors, Typography, Spacing, Shadows & Transitions
+
+### Architecture
+
+```
+Brewery/
+├── src/
+│   ├── app/
+│   │   ├── core/          # API services, interfaces, enums
+│   │   └── pages/         # Application pages
+│   │       └── breweries/ # Breweries list page
+│   └── styles/            # Global styles
+├── libs/
+│   └── ui/                # Reusable UI library
+│       ├── common/        # Button, Input, Card, Loader, Divider
+│       └── modal/         # Modal windows
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Quick Start
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### Install Dependencies
 
 ```bash
-ng generate component component-name
+npm install
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### Run Development Server
 
 ```bash
-ng generate --help
+npm start
 ```
 
-## Building
+Application will be available at `http://localhost:4200/`
 
-To build the project run:
+### Production Build
 
 ```bash
-ng build
+npm run build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Built application will be in `dist/Brewery/` folder
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
